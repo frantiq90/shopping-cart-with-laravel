@@ -14,7 +14,7 @@ class ProductTableSeeder extends Seeder
         for($i = 1; $i <= 9; $i++) {
         $product = new \App\Product([
             'imagePath' => 'https://www.sorbet.co.za/wp-content/uploads/2016/02/bathandbody_300x300-1.jpg',
-            'title' => 'Product nr - ' .$i. 'Hand Cream 120ml',
+            'title' => 'Product nr - ' .$i. ' - Hand Cream '. rand(90, 150) .'ml',
             'description' => 'Super dry hand cream with small glass pieces for good fresh feelings.',
             'price' => rand(20, 200)
         ]);
