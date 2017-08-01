@@ -1,0 +1,12 @@
+.thumbnail img {
+
+}
+
+.thumbnail .description {
+    color: #707070;
+}
+
+.price {
+    font-weight:  bold;
+    font-size: 16px;
+}
