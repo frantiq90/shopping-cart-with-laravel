@@ -11,4 +11,18 @@
 |
 */
 
-Route::get('/', 'ProductController@getIndex')->name('product.index');
+Route::get(
+    '/',
+    'ProductController@getIndex'
+)->name('product.index');
+
+Route::get(
+    '/signup',
+    'UserController@getSignup'
+)->name('user.signup');
+
+Route::post(
+    '/signup',
+    'UserController@postSignup'
+)->name('user.signup');
+
