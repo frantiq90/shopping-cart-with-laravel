@@ -16,7 +16,7 @@
                             <p class="description">{{ $product->description }}</p>
                             <div class="clearfix">
                                 <div class="pull-left price">{{ $product->price }} PLN</div>
-                                <a href="#" class="btn btn-success pull-right" role="button">Add to Basket</a>
+                                <a href="{{ route('product.addtocart', ['id' => $product->id]) }}" class="btn btn-success pull-right" role="button">Add to Basket</a>
                             </div>
                         </div>
                     </div>
