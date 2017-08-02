@@ -26,15 +26,20 @@ Route::get(
     'ProductController@getAddToCart'
 )->name('product.addtocart');
 
-Route::get(
-    '/checkout',
-    'ProductController@getCheckout'
-)->name('checkout');
 
-Route::post(
-    '/checkout',
-    'ProductController@postCheckout'
-)->name('checkout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post(
+        '/checkout',
+        'ProductController@postCheckout'
+    )->name('checkout');
+
+    Route::get(
+        '/checkout',
+        'ProductController@getCheckout'
+    )->name('checkout');
+});
+
 
 Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => 'guest'], function() {

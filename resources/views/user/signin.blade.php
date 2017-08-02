@@ -6,7 +6,7 @@
             <h1>Sign In</h1>
 
             @if(count($errors) > 0)
-                <div class="allert-danger">
+                <div class="alert alert-danger">
                     @foreach($errors->all() as $error)
                         <p>{{ $error }}</p>
                     @endforeach
@@ -25,6 +25,7 @@
                 <button class="btn btn-primary" type="submit">Sign In</button>
                 {{ csrf_field() }}
             </form>
+            <p>If you don't have an account you can easy <a href="{{ route('user.signup') }}">Sign Up here.</a></p>
         </div>
     </div>
 @endsection
