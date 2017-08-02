@@ -9,21 +9,28 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1>Checkout</h1>
             <h4>Your Total is: {{ $total }}PLN</h4>
-            <div class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}" id="charge-error">
+            <div class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}" id="charge-error"></div>
 
+            <div class="alert alert-danger">
+                Developer Info from ProductController:
+                @if (Session::has('error'))
+                    {{ $error }}
+                @else
+                    NO ERRORS
+                @endif
             </div>
             <form action="{{ route('checkout') }}" method="post" id="checkout-form">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" class="form-control" required name="name">
+                            <input type="text" id="name" class="form-control" name="name"  required>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <label for="adress">Adress</label>
-                            <input type="text" id="adress" class="form-control" required name="adress">
+                            <label for="address">Adress</label>
+                            <input type="text" id="address" class="form-control"  name="address" required>
                         </div>
                     </div>
                     <div class="col-xs-12">
