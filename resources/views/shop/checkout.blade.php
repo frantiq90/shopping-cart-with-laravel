@@ -14,7 +14,7 @@
             <div class="alert alert-danger">
                 Developer Info from ProductController:
                 @if (Session::has('error'))
-                    {{ $error }}
+                    {{ Session::get('error') }}
                 @else
                     NO ERRORS
                 @endif
@@ -71,6 +71,7 @@
 
                 </div>
                 <button type="submit" class="btn btn-success">Confirm Payment</button>
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw hidden" id="confirm-spinner"></i>
                 {{ csrf_field() }}
             </form>
         </div>

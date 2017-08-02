@@ -7,7 +7,11 @@ var $form =$('#checkout-form');
 
 $form.submit(function (event) {
     $('#charge-error').addClass('hidden');
+    //$('#confirm-spinner').fadeIn();
     $form.find('button').prop('disabled', true);
+    $form.find('button').fadeOut('fast', function () {
+        $('#confirm-spinner').removeClass('hidden');
+    });
     Stripe.card.createToken({
         number: $('#card-number').val(),
         cvc: $('#card-cvc').val(),
@@ -21,6 +25,8 @@ $form.submit(function (event) {
 function stripeResponseHandler(status, response) {
     if(response.error) {
         $('#charge-error').removeClass('hidden');
+        $('#confirm-spinner').addClass('hidden');
+        $form.find('button').fadeIn();
         $('#charge-error').text(response.error.message);
         $form.find('button').prop('disabled', false);
     } else {
