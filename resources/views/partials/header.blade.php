@@ -14,9 +14,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart</a></li>
+                <li>
+                    <a href="{{ route('product.shoppingcart') }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shopping Cart
+                        <span class="badge">
+                            {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}
+                        </span>
+                    </a>
+                </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i> User Account <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i>  @if(Auth::check()) [ {{ Auth::user()->email }} ] @else User Account @endif<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         @if(Auth::check())
                             <li><a href="{{ route('user.profile') }}">Profile</a></li>
