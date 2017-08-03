@@ -26,6 +26,16 @@ Route::get(
     'ProductController@getAddToCart'
 )->name('product.addtocart');
 
+Route::get(
+    '/reduce-by-one/{id}',
+    'ProductController@getReduceByOne'
+)->name('product.reducebyone');
+
+Route::get(
+    '/remove-item/{id}',
+    'ProductController@getRemoveItem'
+)->name('product.removeitem');
+
 
 
 Route::middleware(['auth'])->group(function () {
